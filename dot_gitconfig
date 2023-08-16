@@ -1,0 +1,19 @@
+[user]
+	email = m2rs@posteo.de
+	name = Crisu1710
+[color]
+        ui = true
+[alias]
+	cob = checkout -b
+	co = checkout
+	cp = cherry-pick
+[help]
+        autocorrect = 10
+[core]
+        editor = nvim
+[mergetool]
+        keepBackup = false
+[push]
+        default = simple
+[rerere]
+        enabled = false
