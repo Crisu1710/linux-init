@@ -1,0 +1,8 @@
+alias c="clear"
+alias PODS="kubectl get pod --all-namespaces"
+alias SRC="kubectl get services --all-namespaces"
+alias DEPLOY="kubectl get deploy --all-namespaces"
+alias ktree="kubectl tree"
+alias k="kubectl"
+alias vim="nvim"
+alias cat="bat"
