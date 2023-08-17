@@ -8,3 +8,5 @@
 cp ./dot_files/dot_zshrc /home/$USER/.zshrc
 cp ./dot_files/dot_aliases /home/$USER/.aliases
 cp ./dot_files/dot_gitconfig /home/$USER/.gitconfig
+# firefox remove tab bar
+cp ./firefox/userChrome.css /home/$USER/.mozilla/firefox/*.default-release/chrome/userChrome.css
