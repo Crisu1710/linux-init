@@ -22,6 +22,8 @@ install-settings () {
 install-general () {
   yay -S --noconfirm \
    zsh \
+   fzf \
+   lsd \
    neofetch \
    terminator \
    btop \
