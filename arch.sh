@@ -2,8 +2,12 @@
 
 # run init.sh
 ./arch/init.sh
+./general/vs-code.sh
 # run xfce setup
 ./arch/xfce/setup-wm-de.sh
+# bluetooth
+systemctl enable bluetooth
+systemctl start bluetooth
 # copy dot files
 cp ./dot_files/dot_zshrc /home/$USER/.zshrc
 cp ./dot_files/dot_aliases /home/$USER/.aliases

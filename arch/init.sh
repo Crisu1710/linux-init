@@ -1,7 +1,7 @@
 #!/bin/bash
 
 install-yay () {
-  pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+  pacman -S --needed --noconfirm git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 }
 
 make-dirs () {
@@ -62,7 +62,8 @@ install-k8s () {
     kube-ps1 \
     talosctl \
     openlens-bin \
-    k9s
+    k9s \
+    krew
 }
 
 install-dev () {
@@ -91,27 +92,3 @@ echo "install ops"
 install-ops
 echo "install general"
 install-general
-
-#### OH-MY-ZSH
-#sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-#git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-#git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-#git clone --depth 1 https://github.com/unixorn/fzf-zsh-plugin.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-zsh-plugin
-
-#git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
-#### NvChad 
-#git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
-
-# bluetooth
-systemctl enable bluetooth
-systemctl start bluetooth
-
-# VS-CODE extension
-code --install-extension ms-vscode-remote.remote-ssh 
-code --install-extension ipedrazas.kubernetes-snippets
-code --install-extension kennylong.kubernetes-yaml-formatter
-code --install-extension eamodio.gitlens
-code --install-extension golang.Go
-code --install-extension ms-python.python 
-code --install-extension redhat.vscode-yaml
