@@ -27,7 +27,11 @@ install-general () {
    terminator \
    btop \
    bat \
-   ttf-hack-nerd-font \
+   #ttf-hack-nerd-font \
+   noto-fonts \
+   noto-color-emoji-fontconfig \
+   ttf-hack \
+   ttf-meslo-nerd-font-powerlevel10k \
    telegram-desktop \
    spotify \
    meld \
