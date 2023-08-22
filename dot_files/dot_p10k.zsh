@@ -34,7 +34,7 @@
     os_icon                 # os identifier
     dir                     # current directory
     vcs                     # git status
-    #prompt_char           # prompt symbol
+    prompt_char           # prompt symbol
   )
 
   # The list of segments shown on the right. Fill it with less important segments.
@@ -102,11 +102,11 @@
     taskwarrior             # taskwarrior task count (https://taskwarrior.org/)
     per_directory_history   # Oh My Zsh per-directory-history local/global indicator
     # cpu_arch              # CPU architecture
-    time                    # current time
     # ip                    # ip address and bandwidth usage for a specified network interface
     # public_ip             # public IP address
     # proxy                 # system-wide http/https/ftp proxy
-    battery               # internal battery
+    time                    # current time
+    #battery               # internal battery
     # wifi                  # wifi speed
     # example               # example user-defined segment (see prompt_example function below)
   )
@@ -1751,7 +1751,7 @@
   # Custom icon.
   # typeset -g POWERLEVEL9K_TIME_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # Custom prefix.
-  typeset -g POWERLEVEL9K_TIME_PREFIX='at '
+  # typeset -g POWERLEVEL9K_TIME_PREFIX='at '
 
   # Example of a user-defined prompt segment. Function prompt_example will be called on every
   # prompt if `example` prompt segment is added to POWERLEVEL9K_LEFT_PROMPT_ELEMENTS or
@@ -1794,8 +1794,34 @@
   #   - always:   Trim down prompt when accepting a command line.
   #   - same-dir: Trim down prompt when accepting a command line unless this is the first command
   #               typed after changing current working directory.
-  typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=always
+  typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=off
+  
+  function p10k-on-pre-prompt() {
+    # Show the first prompt line.
+    p10k display '1/left/*'=show '1/left/prompt_char'=hide '1/right/*'=show
+  }
 
+  function p10k-on-post-prompt() {
+  # Hide the empty line and the first prompt line.
+    p10k display '1/left/*'=hide '1/left/prompt_char'=show '1/right/*'=hide '1/right/time'=show
+  }
+  # Hide the second line on the right side
+  #function p10k-on-pre-prompt() {
+  #  p10k display '1|*/left_frame'=show '1/right/(time|dir|status)'=hide
+  #}
+
+  # Show the second line on the right side after command is run
+  #function p10k-on-post-prompt() {
+  #  p10k display '1|*/left_frame'=hide '1/right/(time|dir|status)'=show
+  #}
+  #function p10k-on-post-prompt() {
+  #  p10k display '1/left/*'=hide
+  #  p10k display '1/left/(dir|prompt_char)'=show
+  #}
+  #function p10k-on-pre-prompt() {
+  #  echo
+  #  p10k display '1/left/(vcs)'=show
+  #}
   # Instant prompt mode.
   #
   #   - off:     Disable instant prompt. Choose this if you've tried instant prompt and found
@@ -1806,7 +1832,7 @@
   #   - verbose: Enable instant prompt and print a warning when detecting console output during
   #              zsh initialization. Choose this if you've never tried instant prompt, haven't
   #              seen the warning, or if you are unsure what this all means.
-  typeset -g POWERLEVEL9K_INSTANT_PROMPT=verbose
+  typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
   # Hot reload allows you to change POWERLEVEL9K options after Powerlevel10k has been initialized.
   # For example, you can type POWERLEVEL9K_BACKGROUND=red and see your prompt turn red. Hot reload
