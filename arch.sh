@@ -5,12 +5,11 @@
 ./general/vs-code.sh
 # run xfce setup
 ./arch/xfce/setup-wm-de.sh
-# bluetooth
-systemctl enable bluetooth
-systemctl start bluetooth
-# copy dot files
-cp ./dot_files/dot_zshrc /home/$USER/.zshrc
-cp ./dot_files/dot_aliases /home/$USER/.aliases
-cp ./dot_files/dot_gitconfig /home/$USER/.gitconfig
-# firefox remove tab bar
-cp ./firefox/userChrome.css /home/$USER/.mozilla/firefox/*.default-release/chrome/userChrome.css
+# run services
+./general/services.sh
+# run general/zsh.sh
+#
+# run copy dot files
+./dot_files/copy.sh
+# run firefox copy css
+./firefox/copy.sh

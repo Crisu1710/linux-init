@@ -34,7 +34,7 @@
     os_icon                 # os identifier
     dir                     # current directory
     vcs                     # git status
-    prompt_char           # prompt symbol
+    #prompt_char           # prompt symbol
   )
 
   # The list of segments shown on the right. Fill it with less important segments.
@@ -42,6 +42,7 @@
   # automatically hidden when the input line reaches it. Right prompt above the
   # last prompt line gets hidden if it would overlap with left prompt.
   typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
+    kubecontext             # current kubernetes context (https://kubernetes.io/)
     status                  # exit code of the last command
     command_execution_time  # duration of the last command
     background_jobs         # presence of background jobs
@@ -72,7 +73,6 @@
     phpenv                  # php version from phpenv (https://github.com/phpenv/phpenv)
     scalaenv                # scala version from scalaenv (https://github.com/scalaenv/scalaenv)
     haskell_stack           # haskell version from stack (https://haskellstack.org/)
-    kubecontext             # current kubernetes context (https://kubernetes.io/)
     terraform               # terraform workspace (https://www.terraform.io)
     # terraform_version     # terraform version (https://www.terraform.io)
     aws                     # aws profile (https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)
@@ -1798,30 +1798,13 @@
   
   function p10k-on-pre-prompt() {
     # Show the first prompt line.
-    p10k display '1/left/*'=show '1/left/prompt_char'=hide '1/right/*'=show
+    p10k display '1/left/*'=show '1/right/*'=show '1/right/time'=hide
   }
 
   function p10k-on-post-prompt() {
-  # Hide the empty line and the first prompt line.
-    p10k display '1/left/*'=hide '1/left/prompt_char'=show '1/right/*'=hide '1/right/time'=show
+    # Hide the empty line and the first prompt line.
+    p10k display '1/left/*'=hide '1/left/dir'=show '1/right/*'=hide '1/right/time'=show
   }
-  # Hide the second line on the right side
-  #function p10k-on-pre-prompt() {
-  #  p10k display '1|*/left_frame'=show '1/right/(time|dir|status)'=hide
-  #}
-
-  # Show the second line on the right side after command is run
-  #function p10k-on-post-prompt() {
-  #  p10k display '1|*/left_frame'=hide '1/right/(time|dir|status)'=show
-  #}
-  #function p10k-on-post-prompt() {
-  #  p10k display '1/left/*'=hide
-  #  p10k display '1/left/(dir|prompt_char)'=show
-  #}
-  #function p10k-on-pre-prompt() {
-  #  echo
-  #  p10k display '1/left/(vcs)'=show
-  #}
   # Instant prompt mode.
   #
   #   - off:     Disable instant prompt. Choose this if you've tried instant prompt and found
