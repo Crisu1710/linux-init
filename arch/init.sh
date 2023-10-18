@@ -23,6 +23,7 @@ install-general () {
   yay -S --noconfirm \
    zsh \
    lsd \
+   keyring \
    neofetch \
    terminator \
    btop \
@@ -37,7 +38,9 @@ install-general () {
    meld \
    piper \
    discord \
-   joplin-appimage
+   joplin-appimage \
+   rpi-imager \
+   wireguard-tools
 }
 
 install-office () {
@@ -52,12 +55,15 @@ install-office () {
 install-ops () {
   yay -S --noconfirm \
     net-tools \
+    gnu-netcat \
     aws-cli \
+    mtr \
     whois \
     tcpdump \
     remmina \
     remmina-plugin-rdesktop \
-    podman
+    podman \
+    cheese
 }
 
 install-k8s () {
