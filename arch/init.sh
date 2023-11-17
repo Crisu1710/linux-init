@@ -40,7 +40,9 @@ install-general () {
    discord \
    joplin-appimage \
    rpi-imager \
-   wireguard-tools
+   wireguard-tools \
+   mkinitcpio-pkcs11 \
+   yubico-authenticator
 }
 
 install-office () {
