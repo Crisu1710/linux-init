@@ -50,7 +50,7 @@ install-office () {
     evolution \
     libreoffice-fresh-de \
     chromium \
-    keepassxc \
+    #keepassxc \
     flameshot
 }
 
