@@ -13,3 +13,5 @@
 ./dot_files/copy.sh
 # run firefox copy css
 ./firefox/copy.sh
+# set timezone
+timedatectl set-timezone Europe/Berlin
