@@ -28,7 +28,6 @@ install-general () {
    terminator \
    btop \
    bat \
-   #ttf-hack-nerd-font \
    noto-fonts \
    noto-color-emoji-fontconfig \
    ttf-hack \
