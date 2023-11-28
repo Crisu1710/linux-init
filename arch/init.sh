@@ -39,7 +39,6 @@ install-general () {
    discord \
    joplin-appimage \
    rpi-imager \
-   wireguard-tools \
    mkinitcpio-pkcs11 \
    yubico-authenticator
 }
@@ -49,22 +48,28 @@ install-office () {
     evolution \
     libreoffice-fresh-de \
     chromium \
-    #keepassxc \
     flameshot
 }
 
 install-ops () {
   yay -S --noconfirm \
-    net-tools \
-    gnu-netcat \
     aws-cli \
-    mtr \
     whois \
-    tcpdump \
     remmina \
     remmina-plugin-rdesktop \
     podman \
-    cheese
+    cheese \
+    terraform
+}
+
+install-noc () {
+  yay -S --noconfirm \
+    net-tools \
+    gnu-netcat \
+    mtr \
+    whois \
+    tcpdump \
+    wireguard-tools
 }
 
 install-k8s () {
@@ -89,17 +94,19 @@ echo "make std dirs"
 make-dirs
 echo "install yay"
 install-yay
+echo "install settings"
+install-settings
+echo "install general"
+install-general
 echo "install office"
 install-office
 echo "install extension"
 install-extension
-echo "install settings"
-install-settings
 echo "install dev"
 install-dev
 echo "install k8s"
 install-k8s
 echo "install ops"
 install-ops
-echo "install general"
-install-general
+echo "install noc"
+install-noc
